@@ -6,6 +6,7 @@ A personal study record covering algebra through trigonometry — definitions
 clarified, procedures summarised, and hard-won gotchas written down so they
 stick.
 
+> [!NOTE]
 > These are my personal study notes — my understanding at the time, not a textbook. Some of it has mistakes; use at your own discretion.
 
 ## Origin
