@@ -42,3 +42,10 @@ This log records every edit made to the original Feb–Mar 2025 study notes duri
 - Finding range: replaced the prior-pass deletion with the author's-voice reword "Knowing x can be anything tells you nothing about y. To find the range, look at the shape of the graph — its lowest and highest points, and where it goes. (e.g. `y=x²`: x can be anything, but y never goes below 0.)".
 - Perpendicular slope: kept the author's "A perpendicular line has slope of opposite direction and magnitude" and appended "i.e. if one line has slope `m`, the perpendicular has slope `−1/m`."
 - Disclaimer added (README.md and top of content/index.md as a `[!note]` callout): "These are my personal study notes — my understanding at the time, not a textbook. Some of it has mistakes; use at your own discretion."
+
+## 2026-10-04 — TOC refactor + dark-mode restore + dead-file removal
+
+- TOC script split: `toc.inline.ts` is now the entry over `toc-collapse.ts` / `toc-dwell.ts` / `toc-scrollspy.ts`; stock TOC `afterDOMLoaded` suppressed in `componentResources.ts` so the custom script owns the pane (build now emits 51 files, was 53).
+- Single-page layout narrowed: 2-column grid without `!important`, mobile stack restored; `.center` 900px cap restored via scoped `min-width: 0`; `a.internal` pill reset; deep headings sized via CSS (h4 1.15rem, h5 1.05rem, h6 1rem).
+- Dark-mode body background restored (dropped in refactor merge): `[saved-theme="dark"] body` now follows `var(--light)`.
+- Dead files removed per knip: `quartz/util/emoji.ts`, `quartz/util/jsx.tsx` (zero imports); `knip.json` + `dupes` gates added (`TOC-FEATURES.md` F8 corrected to 51 files).

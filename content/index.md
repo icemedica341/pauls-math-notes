@@ -5,7 +5,9 @@ aliases: ["math-lessons"]
 ---
 
 > [!note]
-> These are my personal study notes — my understanding at the time, not a textbook. Some of it has mistakes; use at your own discretion.
+> Personal study notes, written to teach myself. They might contain mistakes. I couldn't add calculus stuff here at the time of writing, geometry/trigonometry is only partially covered.
+>
+> Start Feb ~ End March (2025)
 
 Based on [Paul's Online Math Notes](https://tutorial.math.lamar.edu/) by [Paul Dawkins](https://www.linkedin.com/in/paul-dawkins-b7282b12) at Lamar University
 
@@ -13,14 +15,10 @@ where you can find practice and notes on Math Topics typically taught Pre-Univer
 
 > However it doesn’t contain full topics for geometry and trigonometry sadly so gotta find those resources somewhere else check out [Resources](#-resources).
 >
-> Therefore these notes are more Algebra and Calculus Leaning, not so much Geometry. Unfortunately, I did not have time to go through Calculus, but maybe I’ll come back to update this. Or I’ll have a separate resource for this.
+> Therefore these notes are more Algebra leaning and a little bit of Trigonometry, not so much Geometry. I didn't have time to go through Calculus here.
 
 ---
 
-> [!note]
-> This docs is incomplete, I couldn’t add calculus stuff here at the time of writing
->
-> Start Feb ~ End March (2025)
 
 # 🏃‍➡️ BEFORE YOU START
 
@@ -44,7 +42,7 @@ Thus, couple this with both **Paul’s Online Math Notes**, **YouTube**, or any 
 
 Learning happens best through diversity, by **seeing the same problem through different lenses** you gain a more comprehensive understanding of the topic.
 
-Just jump between different sections, **read in whatever order you want**, you aren’t limited to reading it linearly like section by section. Bravely **skip sections** if you don’t want to read it, just know you can always find it on the *Document Tab*
+Just jump between different sections, **read in whatever order you want**, you aren’t limited to reading it linearly like section by section. Bravely **skip sections** if you don’t want to read it, just know you can always find it in the *Table of Contents*
 
 - Jumping straight to the Math Topics is my recommendation:
   [Algebra](#-algebra)
@@ -53,7 +51,7 @@ You don’t have to completely understand things that you just read, it would be
 
 The sections are only to group resources together in a reasonable way so it is easier to find it, leverage **Ctrl + F** *(Windows)* or **Cmd + F** *(Macbook)* to quickly find specific words or words related to concepts you are thinking about
 
-Use the Document tab on the left-hand side to navigate between different sections
+Use the Table of Contents on the left-hand side to navigate between different sections
 
 [GENERAL NOTES](#-general-notes) contains some general thoughts of mine on learning maths
 
@@ -175,7 +173,7 @@ denominator radicands can't be equal to zero
 | Division                 | If $a = b$ and $c \ne 0$, then $\dfrac{a}{c} = \dfrac{b}{c}$         | Dividing by same nonzero value preserves equality<br><br>    |
 | Substitution Property    | If $a = b$, <br>then they substitute each other | Interchangeable in any expression<br><br>          |
 
-## Equivalence Relation
+## Injective (One-to-One) Functions
 
 $\large{\text{If} \space f(a)=f(b), \space \text{then} \space a=b}$
 If a function never repeats an output — each output comes from exactly one input (it passes the horizontal-line test) — then $f(a)=f(b)$ forces $a=b$.
@@ -263,7 +261,7 @@ This is commonly used for quadratic equations, but it is a generally very helpfu
 
 ## Division by Zero
 
-Multiplication by $0$ will give zero, but division by $0$ doesn’t have one defined answer (the answer can be anything. I.e. it can be 1 ,2, 3, …), this inconsistency causes division by zero to remain undefined in its formal definition.
+Multiplication by $0$ will give zero, but division by $0$ doesn’t have one defined answer (the answer can be anything. I.e. it can be 1 ,2, 3, … A nonzero number over $0$ has no answer at all; $0/0$ could be anything), this inconsistency causes division by zero to remain undefined in its formal definition.
 
 ## Solving Equations with Fractions
 
@@ -390,7 +388,7 @@ $|x| \ge 0$, by definition
 
 $b^x > 0$, thus $b^x = p > 0$ in $\log_b{p}$
 
-However, $\log_b{p} \in \mathbb{R}$  , since any power is possible
+However, $\log_b{p} \in \mathbb{R}$  , (needs b>0, b≠1, p>0), since any power is possible
 
 ## Restrictions of Trigonometric Functions
 
@@ -417,6 +415,7 @@ This will come to be very helpful when you need to find the value of undefined c
 $$
 \large{a + b \ge c}
 $$
+(= only for a flat triangle, i.e. a straight line.)
 > where $c$ is the longest side, $a$ and $b$ are the other 2 sides of ANY Triangle (equality only for a degenerate flat triangle — a straight line with no height, not a proper triangle)
 
 ## Pythagorean Theorem
@@ -631,7 +630,7 @@ Rational Exponents are exponents that can be written as a **Fraction**
 
 ### --- Radicals/Roots
 
-Radical functions find the **positive base** of any **real number** i.e. **Roots**
+Radical functions find the **positive base** of any **real number** i.e. **Roots** (even index). For odd index, negative bases are allowed (∛(−8)=−2).
 
 - It wouldn’t be a function (i.e simple and predictable relationship with one-to-one correspondence ) if allowed finding
 negative bases
@@ -730,7 +729,7 @@ Where if $P(r) = 0$ it means the remainder is $0$, meaning $(x-r)$ is a factor o
 - Try using the quadratic equation
 - Try [Completing the Square](#completing-the-square), its otherwise easier to just sub in for quadratic equation
 - If all else fails then guess and check might be in order,
-- Or use the Rational Root Theorem which states that a factor of the last term over that of the first term may be a factor.
+- Or use the Rational Root Theorem: a rational zero p/q (lowest terms) needs p from the last term and q from the first term. Don't forget the ±.
 - Combining this with Factor Theorem which states that if $f(a) = 0$, then $(x - a)$ is a factor of $f(x)$
 - Also try common factors like $0$ and $1$
 
@@ -1147,7 +1146,7 @@ However, there will be if there were restrictions
 
 Break the question down into its simpler forms
 
-Inverse functions have to pass the horizontal-line test (to determine that it is still a function), therefore restricting domain is important to achieve this.
+The original function has to pass the horizontal-line test. That's what makes its inverse a function, which is why restricting domain matters.
 
 The range of each inverse function is its Principal Range: arcsin $[-\pi/2,\pi/2]$, arccos $[0,\pi]$, arctan $(-\pi/2,\pi/2)$
 
@@ -1295,7 +1294,7 @@ $$
 > $a$ is the distance between the centre and the vertex of the $x$-axis
 > $b$ is the distance between the centre and the vertex of the $y$-axis
 
-- Sum of any point on the hyperbola to the 2 foci is constant
+- Sum of any point on the ellipse to the 2 foci is constant
 - Simply rearrange the equation to look like this and you are set
 - Leverage [Completing the Square](#completing-the-square) if required
 
@@ -1407,7 +1406,6 @@ Same logic apply to other transformations and opposite transformations
 - Symmetry around $y$-axis is checked by seeing if switching $x$ to $-x$ in the equation results in the same equation
 - If you switch both the $x$ and $y$ and the equation is still the same it is symmetric around the origin
 - Take note that testing symmetry around one axis is to negate values of the other axis!
-- If all powers of the terms are even or absolute value, then it is symmetric around the opposite axis, otherwise it’s not
 
 - Take note that if a graph is symmetric around both $x$ and $y$, then it is definitely symmetric around the origin
 - However, if it is not symmetric for both $x$ and $y$,  it still MIGHT be symmetric around the origin, you will have to check, examples such as $y=x$ will cause this case to happen.
@@ -1533,7 +1531,7 @@ However, if a more accurate graph is needed
 
 ##### Rational Root Theorem
 
-It states that the roots of a polynomials is possibly a factor of the constant over the factor of the coefficient of the highest degree term in the polynomial
+It states that a rational zero p/q (lowest terms) needs p from the last term and q from the first term. Don't forget the ±.
 
 ##### Root location by intermediate value
 
@@ -1948,7 +1946,7 @@ But why not simultaneous sub up and down
 
 ### --- Nonlinear Systems
 
-The number of Common Zeros equals the product of the degrees of the polynomials. Check [Bézout's Theorem](#number-of-common-zeros-of-n-polynomials--bézouts-theorem)
+The number of Common Zeros is *at most* the product of the degrees of the polynomials. Check [Bézout's Theorem](#number-of-common-zeros-of-n-polynomials--bézouts-theorem)
 
 Using augmented matrices on non-linear systems are okay as long as the referenced variables in the matrix are consistent
 > i.e. we can do $x^2$ with $y^2$, $x^2$ with $y$, whatever, as long as they are present in all the equations

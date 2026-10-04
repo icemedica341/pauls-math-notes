@@ -1,0 +1,21 @@
+{
+  "$schema": "https://unpkg.com/knip@6.39.0/schema.json",
+  "entry": [
+    "quartz.ts",
+    "quartz/build.ts",
+    "quartz/worker.ts",
+    "quartz/bootstrap-worker.mjs",
+    "quartz/plugins/loader/**/*.ts",
+    "quartz/components/Date.tsx",
+    "quartz/components/PageList.tsx"
+  ],
+  "project": ["quartz/**/*.{ts,tsx,js,mjs}"],
+  "ignoreDependencies": [
+    "@quartz-community/*",
+    "@quartz-themes/core",
+    "@myriaddreamin/rehype-typst",
+    "@napi-rs/simple-git",
+    "sharp",
+    "unist-util-visit"
+  ]
+}

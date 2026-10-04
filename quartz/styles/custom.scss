@@ -11,14 +11,10 @@
 // hardened here so article chrome matches even where vars don't reach)
 body {
   background-color: #f9f3ec;
+  --file-line-width: 800px;
 }
 [saved-theme="dark"] body {
   background-color: var(--light);
-}
-
-// --- 2. wider-margins: readable line length 800px (math needs width; single page, no right sidebar) ---
-body {
-  --file-line-width: 800px;
 }
 .center > article {
   max-width: 800px;
@@ -40,6 +36,10 @@ article a {
 }
 article a.internal {
   color: var(--secondary);
+  // R12: reset base a.internal pill (base.scss bg/padding/radius)
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
 }
 article a:not(.internal) {
   color: var(--darkgray);
@@ -58,12 +58,6 @@ article table {
   width: auto !important;
   max-width: 100% !important; // S6+S7 conflict resolved: cap wins
 }
-
-// --- 7. table-centre-element: responsive cap + airy top-aligned cells ---
-// (after table-auto-size, matching Obsidian snippet cascade order)
-article table {
-  max-width: 100% !important;
-}
 article table td,
 article table th {
   padding-bottom: 1em !important;
@@ -72,7 +66,6 @@ article table th {
 
 // --- 8. thick-cursor removed (2026-10-02 refactor): editor-only CodeMirror, no match in static build ---
 
-
 // --- 9. base-density: 90% reading scale (Loop 3) ---
 html {
   font-size: 90%;
@@ -80,14 +73,25 @@ html {
 
 // --- 10. single-page layout: no right sidebar — collapse its grid column ---
 // (explorer/graph/backlinks all disabled; the empty right track squeezed content)
+// R10: narrowed override — no !important (unlayered custom.scss beats base's
+// @layer quartz-base regardless); mobile single-column stack restored,
+// which the unconditional 2-col override had clobbered.
 #quartz-body {
-  grid-template-columns: #{$sidePanelWidth} minmax(0, 1fr) !important;
+  grid-template-columns: #{$sidePanelWidth} minmax(0, 1fr);
   grid-template-areas:
     "grid-sidebar-left grid-header"
     "grid-sidebar-left grid-center"
-    "grid-sidebar-left grid-footer" !important;
+    "grid-sidebar-left grid-footer";
   & .sidebar.right {
     display: none;
+  }
+  @media all and ($mobile) {
+    grid-template-columns: auto;
+    grid-template-areas:
+      "grid-sidebar-left"
+      "grid-header"
+      "grid-center"
+      "grid-footer";
   }
 }
 .center {
@@ -99,6 +103,13 @@ html {
   padding-right: 2.5rem;
   box-sizing: border-box; // C5 fix 2: padding was added outside width (content-box), forcing 72px horizontal overflow
 }
+// R9: base sets .page > #quartz-body .center { min-width: 100% }, which
+// beats max-width (min-width wins over max-width), so the 900px cap never
+// applied. Scoped equal-specificity override restores the cap intent.
+// Unlayered custom.scss beats base's @layer quartz-base regardless.
+.page > #quartz-body .center {
+  min-width: 0;
+}
 
 // --- 11. toc explorer base: no dim/fade, active = explorer
 // selected-file highlight (tertiary, cf. explorer a.active); single-line ellipsis ---
@@ -106,14 +117,16 @@ ul.toc-content.overflow {
   overflow: hidden auto;
   max-height: calc(100vh - 12rem);
   overscroll-behavior: contain;
+  gap: 0.35rem; // cs-notes parity: .explorer-content ul
 }
-ul.toc-content.overflow > li {
-  position: relative;
+ul.toc-content.overflow > li:not(.toc-hidden) {
+  padding: 0.15rem 0; // cs-notes parity: .explorer-content li (scoped off collapsed rows so 0fr collapse leaves no sliver)
 }
 ul.toc-content.overflow > li > a {
   // E1 folder typography (verbatim cs-notes .folder-title values).
   // NOTE: supersedes A8 darkgray/400 per spec E1 (hover/active tertiary kept).
   color: var(--secondary);
+  opacity: 1;
   opacity: 1 !important;
   font-family: var(--headerFont);
   font-size: 0.95rem;
@@ -132,10 +145,10 @@ ul.toc-content.overflow > li > a:hover {
   color: var(--tertiary);
 }
 ul.toc-content.overflow > li > a.active {
+  opacity: 1;
   opacity: 1 !important;
   color: var(--tertiary);
 }
-
 
 // --- 12. dwell in-place expansion: the overlay IS the row grown wider ---
 // (toc.inline.ts copies the row's computed font/color/background/
@@ -153,13 +166,13 @@ ul.toc-content.overflow > li > a.active {
   font-weight: normal;
 }
 
-
 // --- 12b. toc explorer groups (cs-notes explorer port): chevron collapse, toolbar,
 // indentation guides. Collapsed groups hide their rows via .toc-hidden.
 // Group collapse animation: exact port of cs-notes explorer
 // .explorer-content .folder-outer (grid 0fr/1fr + visibility transition).
 // Flat-list adaptation: each row is its own grid; hidden rows collapse to 0fr.
 ul.toc-content.overflow > li {
+  position: relative;
   display: grid;
   grid-template-rows: 1fr;
   visibility: visible;
@@ -233,7 +246,11 @@ $toc-step: 0.8rem;
       $sizes: ();
       $poss: ();
       @for $l from 0 through ($d - 1) {
-        $imgs: list.append($imgs, linear-gradient(var(--lightgray), var(--lightgray)), comma);
+        $imgs: list.append(
+          $imgs,
+          linear-gradient(var(--lightgray), var(--lightgray)),
+          comma
+        );
         $sizes: list.append($sizes, 1px 100%, comma);
         $poss: list.append($poss, calc(#{$l} * #{$toc-step} + 6px) 0, comma);
       }
@@ -285,7 +302,6 @@ $toc-step: 0.8rem;
   color: var(--darkgray);
 }
 
-
 // --- 14. toc-static-header: the TOC header is a label, never a control ---
 // (stock component renders a button; inert here so the pane cannot fold) ---
 div.toc {
@@ -313,8 +329,6 @@ div.toc > button.toc-header h3 {
   margin: 0;
 }
 
-
-
 // --- 15. deep-heading legibility: h4-h6 keep their hierarchy but render
 // large enough to read as section headers (TECHNICAL NOTES sub-headers) ---
 .center article h4 {
@@ -325,4 +339,20 @@ div.toc > button.toc-header h3 {
 }
 .center article h6 {
   font-size: 1rem;
+}
+
+
+// --- 16. search layout stability: results column keeps its preview width
+// ALWAYS, so the async preview fill (data-preview toggle) never shifts
+// the results column left/right. Mirrors the plugin's own
+// flex: 0 0 min(30%, 450px) rule, applied unconditionally. ---
+.search-layout > .results-container {
+  flex: 0 0 min(30%, 450px);
+  max-width: min(30%, 450px);
+}
+
+// --- 17. faint search suggestion: placeholder renders as a dim hint,
+// --- not body-weight text (Firefox UA default is opacity .54) ---
+.search-bar::placeholder {
+  opacity: 0.55;
 }

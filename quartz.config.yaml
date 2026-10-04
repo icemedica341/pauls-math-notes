@@ -114,6 +114,11 @@ plugins:
   - source: "@quartz-community/alias-redirects"
     enabled: true
   - source: "@quartz-community/content-index"
+    enabled: false
+    options:
+      enableSiteMap: true
+      enableRSS: true
+  - source: "./quartz-plugins/section-search-index"
     enabled: true
     options:
       enableSiteMap: true
@@ -149,6 +154,8 @@ plugins:
       priority: 10
   - source: "@quartz-community/search"
     enabled: true
+    options:
+      searchPlaceholder: "Search sections… (tip: Ctrl+F finds words on this page)"
     layout:
       position: left
       priority: 20
@@ -185,12 +192,6 @@ plugins:
     layout:
       position: left
       priority: 30
-      group: toolbar
-  - source: "@quartz-community/reader-mode"
-    enabled: true
-    layout:
-      position: left
-      priority: 35
       group: toolbar
   - source: "@quartz-community/breadcrumbs"
     enabled: false
@@ -278,12 +279,10 @@ layout:
     content: {}
     folder:
       exclude:
-        - reader-mode
       positions:
         right: []
     tag:
       exclude:
-        - reader-mode
       positions:
         right: []
     canvas: {}

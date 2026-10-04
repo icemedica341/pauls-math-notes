@@ -1,0 +1,28 @@
+{
+  "description": "Quartz emitter that wraps the stock content-index and rewrites contentIndex.json with one entry per document section (slug#anchor), so search returns per-section results with anchor jumps.",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "name": "section-search-index",
+  "quartz": {
+    "category": "emitter",
+    "defaultEnabled": true,
+    "defaultOptions": {
+      "enableRSS": true,
+      "enableSiteMap": true
+    },
+    "defaultOrder": 50,
+    "description": "Per-section search index (splits pages by heading at index time).",
+    "displayName": "Section Search Index",
+    "name": "section-search-index",
+    "version": "1.0.0"
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "type": "module",
+  "version": "1.0.0"
+}

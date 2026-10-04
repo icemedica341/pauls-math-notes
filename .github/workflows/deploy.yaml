@@ -27,6 +27,7 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run install-plugins
+      - run: npm run check:plugins
       - run: npx quartz build
       - uses: actions/upload-pages-artifact@v3
         with:
