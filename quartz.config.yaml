@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=./quartz/plugins/quartz-plugins.schema.json
 configuration:
-  pageTitle: Paul's Math Notes
+  pageTitle: Math Lessons
   pageTitleSuffix: ""
   enableSPA: true
   enablePopovers: true

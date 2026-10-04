@@ -1,5 +1,6 @@
 ---
-title: "Paul's Math Notes"
+title: "Math Lessons"
+description: "Worked-through notes based on Paul's Online Math Notes"
 aliases: ["math-lessons"]
 ---
 
@@ -374,7 +375,7 @@ The reason is that odd radicands can be negative because the radicands base can 
 
 **Proof that cube root of negative numbers are negative cube roots of their absolute value**
 
-$\sqrt[3]{-x}$, where x is positive $\longrightarrow \sqrt[3]{-1} \cdot \sqrt[3]{x} \longrightarrow (-1) \cdot \sqrt[3](x) \longrightarrow -\sqrt[3]{x}$
+$\sqrt[3]{-x}$, where x is positive $\longrightarrow \sqrt[3]{-1} \cdot \sqrt[3]{x} \longrightarrow (-1) \cdot \sqrt[3]{x} \longrightarrow -\sqrt[3]{x}$
 
 **Therefore,**
 
@@ -807,7 +808,7 @@ This is more like a definition in this scenario whereby imagine a plane where th
 
 The modulus therefore describes the **distance from the origin to that specific point that the complex number is at**.
 
-Draw it out and you will find out that the real number axis, imaginary number axis and the distance to the point creates a right-angled triangle *(because of how the axis are defined as perpendicular to each other i.e. $90^{^{\circ}}$ apart)*.
+Draw it out and you will find out that the real number axis, imaginary number axis and the distance to the point creates a right-angled triangle *(because of how the axis are defined as perpendicular to each other i.e. $90^{\circ}$ apart)*.
 
 Therefore, the modulus will follow the [Pythagorean Theorem](#pythagorean-theorem)
 
@@ -1480,7 +1481,7 @@ $$
 \end{array}
 $$
 
-Now, terms here are power-reduced by one, so this reads $6x^4 + 12x^ 3 + 23x^2 + 38x + 76$ , remainder $153$
+Now, terms here are power-reduced by one, so this reads $6x^4 + 12x^3 + 23x^2 + 38x + 76$ , remainder $153$
 
 $$
 6x^5 - x^3 - 8x^2 + 1 = (6x^4 + 12x^3 + 23x^2 + 38x + 76)(x-2) + 153
@@ -1578,10 +1579,12 @@ It looks something like this
 
 $$
 \begin{aligned}
-\frac{Ax + B}{(x + 1)(x + 2)^k(x^2 + 2)\ldots} &= \frac{C}{x + 1} + \left( \frac{D}{x + 2} + \cdots + \frac{E}{(x + 2)^k} \right)\\
+\frac{P(x)}{(x + 1)(x + 2)^k(x^2 + 2)\ldots} &= \frac{C}{x + 1} + \left( \frac{D}{x + 2} + \cdots + \frac{E}{(x + 2)^k} \right)\\
 &\quad + \frac{Fx + G}{x^2 + 2} + \cdots
 \end{aligned}
 $$
+
+- The $P(x)$ on top is just shorthand, its degree is one less than the whole bottom multiplied out, so really it's a much bigger polynomial, not just a linear thing.
 
 - To keep proper fractions in polynomials, the degree of the numerator is at most 1 degree less than the degree of the denominator. Thus, we always take it at 1 degree less to cover all bases.
 
@@ -2081,7 +2084,7 @@ h is the perpendicular distance from one side to the other
 | Property   | Formula                         |
 |------------|---------------------------------|
 || Area       | $\pi r^2$                         |
-| Perimeter  | $2r \pi$ or expressed as$D\pi$    |
+| Perimeter  | $2r \pi$ or expressed as $D\pi$    |
 
 - Proving this will require Calculus, or at least Limits
 
