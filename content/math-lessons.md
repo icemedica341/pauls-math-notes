@@ -2,7 +2,7 @@ Based on [Paul's Online Math Notes](https://tutorial.math.lamar.edu/) by [Paul D
 
 where you can find practice and notes on Math Topics typically taught Pre-University
 
-> However it doesn’t contain full topics for geometry and trigonometry sadly so gotta find those resources somewhere else check out [[#Resources]].
+> However it doesn’t contain full topics for geometry and trigonometry sadly so gotta find those resources somewhere else check out [Resources](#-resources).
 >
 > Therefore these notes are more Algebra and Calculus Leaning, not so much Geometry. Unfortunately, I did not have time to go through Calculus, but maybe I’ll come back to update this. Or I’ll have a separate resource for this.
 
@@ -33,7 +33,7 @@ Learning happens best through diversity, by **seeing the same problem through di
 Just jump between different sections, **read in whatever order you want**, you aren’t limited to reading it linearly like section by section. Bravely **skip sections** if you don’t want to read it, just know you can always find it on the *Document Tab*
 
 - Jumping straight to the Math Topics is my recommendation:
-  [[#🔡 ALGEBRA | Algebra]]
+  [Algebra](#-algebra)
 
 You don’t have to completely understand things that you just read, it would be great if we did but usually it will take a while and with some application to understand it
 
@@ -41,17 +41,17 @@ The sections are only to group resources together in a reasonable way so it is e
 
 Use the Document tab on the left-hand side to navigate between different sections
 
-[[#🌐 GENERAL NOTES | GENERAL NOTES]] contains some general thoughts of mine on learning maths
+[GENERAL NOTES](#-general-notes) contains some general thoughts of mine on learning maths
 
-[[#❗ LIST OF ERRORS | LIST OF ERRORS]] contains some errors I caught myself doing, which you can take reference to correct your own error habits
+[LIST OF ERRORS](#-list-of-errors) contains some errors I caught myself doing, which you can take reference to correct your own error habits
 
-[[#🗒️ TECHNICAL NOTES | TECHNICAL NOTES]] contains a lot of specific math gotchas and information that you should know. Answering my own questions—and hopefully yours—on why we can and cannot do some things in math that is often glossed over or not explained well in school
+[TECHNICAL NOTES](#️-technical-notes) contains a lot of specific math gotchas and information that you should know. Answering my own questions—and hopefully yours—on why we can and cannot do some things in math that is often glossed over or not explained well in school
 
-[[#🔡 ALGEBRA | ALGEBRA]] contains notes I wanted to clarify or summarise on each algebra section of Paul’s Online Math Notes
+[ALGEBRA](#-algebra) contains notes I wanted to clarify or summarise on each algebra section of Paul’s Online Math Notes
 
-[[#📐TRIGONOMETRY | TRIGONOMETRY]] contains trigonometry essentials that I gathered from [Sullivan’s Algebra and Trigonometry](https://home.ufam.edu.br/andersonlfc/Nivelamento_Matem%C3%A1tica/Algebra%20&%20Trigonometry%20-%20Sullivan/Sullivan%20Algebra%20&%20Trigonometry%209th%20txtbk.pdf)
+[TRIGONOMETRY](#trigonometry) contains trigonometry essentials that I gathered from [Sullivan’s Algebra and Trigonometry](https://home.ufam.edu.br/andersonlfc/Nivelamento_Matem%C3%A1tica/Algebra%20&%20Trigonometry%20-%20Sullivan/Sullivan%20Algebra%20&%20Trigonometry%209th%20txtbk.pdf)
   
-[[#📊 CALCULUS I | CALCULUS I]] doesn’t yet contain anything as while proving the rules, I learnt so much that I wrote it in jupyter notebooks instead. Straying away from this note. If I ever come back I will consider adding it here
+[CALCULUS I](#-calculus-i) doesn’t yet contain anything as while proving the rules, I learnt so much that I wrote it in jupyter notebooks instead. Straying away from this note. If I ever come back I will consider adding it here
 
 *————— With that said, let’s dive into the meat of it all*
 
@@ -128,13 +128,13 @@ denominator radicands can't be equal to zero
 > (accounting for the start number) + (the number of numbers after the *starting number* up to the *ending number*)
 
 \- When subtracting a bigger number from a smaller number i.e. $13 - 17$, it may be easier to think of it as $- (17 - 13)$, as the subtraction is now done with the larger term in front and we just have to add a negative sign afterwards. 
-> This is a property of [[#Negative of a Difference | Negative of a Difference]]
+> This is a property of [Negative of a Difference](#negative-of-a-difference)
 
-\- Leverage the [[#Zero-Product Property | Zero-Product Property]] to find solutions and factors
+\- Leverage the [Zero-Product Property](#zero-product-property) to find solutions and factors
 
 \- When balancing an equation like a + 2 = 3, instead of doing a = 3 - 2 like how you might’ve been taught. It may be easier to think of it as ***what*** + 2 = 3. *Complements to addition* may be easier to think of than direct subtraction
 
-\- **Factor instead of divide when you can**, division requires excluding [[#Division by Zero | division by 0]] for it to be a function, so if you use divide you have to remember this extra condition. 
+\- **Factor instead of divide when you can**, division requires excluding [division by 0](#division-by-zero) for it to be a function, so if you use divide you have to remember this extra condition. 
 > Factoring has no such weakness and always works.
 
 \- When required to give answers with radicals, rationalise them in final form, but keep them in radical form if they are also required for intermediate calculations
@@ -227,7 +227,7 @@ $$
 
 This is now equivalent to ***a - b***, where ***b > a***
 
-#### Fractional Representation of  Multiplication and Division
+#### Fractional Representation of Multiplication and Division
 
 > Multiplication can be thought of as **amounts of the same something**
 > Division can be thought of as the **subparts of the same something**
@@ -263,14 +263,14 @@ An **Inverse** is a general concept where things are **direct opposites of each 
 
 ***Addition* and *Subtraction*** are **inverse operations**
 
-***Multiplication* and *Division*** are **inverse operations** [[#Division by Zero | OTHER THAN DIVISION BY 0]]
+***Multiplication* and *Division*** are **inverse operations** [OTHER THAN DIVISION BY 0](#division-by-zero)
 
 Exponential Function, Power Functions to Radicals, Logarithms are imperfect inverses if we take the whole domain and range of those functions, because they don’t match. However, within limited domain and range they can be perfect inverses
 
 ##### Reciprocals
-Reciprocal is a name for the inverse of [[#Fractional Representation of  Multiplication and Division | fractional representation of multiplication and division]]
+Reciprocal is a name for the inverse of [fractional representation of multiplication and division](#fractional-representation-of-multiplication-and-division)
 
-Since multiplication and division are [[#Division by Zero | almost always]] **opposites** of each other, the **inverse of such a representation** is to **swap the numbers that represent multiplication and division**
+Since multiplication and division are [almost always](#division-by-zero) **opposites** of each other, the **inverse of such a representation** is to **swap the numbers that represent multiplication and division**
 
 Thus **swapping the numerator and denominators**
 - If **x** is the multiple, then the multiplicative inverse, is $\dfrac{1}{x}$
@@ -293,7 +293,7 @@ While solving an algebraic equation, very often we might get 2 fractions equalli
 
 $\dfrac{2x}{x+1} = \dfrac{2x-1}{x}$ where $x \ne 1$, $x \ne 0$
 
-- If you don’t understand why we need to have these conditions every time we solve an equation with fractions, look [[#Solving Equations with Fractions | here]]
+- If you don’t understand why we need to have these conditions every time we solve an equation with fractions, look [here](#solving-equations-with-fractions)
 
 To equalise the fractions for easier comparison, while keeping the expressions the same value, we can do this:
 
@@ -328,7 +328,7 @@ $$
 2x^2 = (2x - 1)(x + 1)
 $$
 
-After solving, check that your solution doesn’t violate the [[#Division by Zero | axiom of division]]
+After solving, check that your solution doesn’t violate the [axiom of division](#division-by-zero)
 
 For example, let’s continue solving:
 
@@ -353,10 +353,10 @@ Just always remember this is a trick, not the most direct property of algebraic 
 #### Common Range Restrictions
 
 **Domain Restrictions**
-> Denominator  $\ne 0$, (see [[#Division by Zero]])
+> Denominator  $\ne 0$, (see [Division by Zero](#division-by-zero))
 > **Even** Radicands  $\ge$ 0, If even radicand in denominator, Radicant > 0
 
-The reason is that odd radicands can be negative because the radicands base can be negative, thus giving negative answers at odd powers. This is untrue for even powers because whatever real value the base is the result will always be positive. Check [[#Restrictions of Even Powers | Restriction of Even Powers]]
+The reason is that odd radicands can be negative because the radicands base can be negative, thus giving negative answers at odd powers. This is untrue for even powers because whatever real value the base is the result will always be positive. Check [Restriction of Even Powers](#restrictions-of-even-powers)
 
 **Proof that cube root of negative numbers are negative cube roots of their absolute value**
 
@@ -501,7 +501,7 @@ $$
 \dfrac{-1 \pm \sqrt{1 - 4}}{2}
 $$
 
-Which simplifies to this, which becomes an imaginary number because it can be [**separated into 2 terms that have opposite polarity**](#bookmark=id.sb1zo2ka466m)
+Which simplifies to this, which becomes an imaginary number because it can be **separated into 2 terms that have opposite polarity**
 
 $$
 \boxed{
@@ -590,7 +590,7 @@ $$
 | $x^{1/n}$      | $\sqrt[n]{x}$ | Depends on $x, n$  | Even roots require $x \ge 0$ in reals                                 |
 | $(-1)^n$       | $\pm 1$       | Integer $n$        | Alternates sign: 1 if even, –1 if odd                                 |
 
-This is one way to depict repeated multiplication, we will explore constant base to variable power in [[#Exponential Functions | Exponential Functions]]
+This is one way to depict repeated multiplication, we will explore constant base to variable power in [Exponential Functions](#----exponential-functions)
 
 **Steps**
 
@@ -701,7 +701,7 @@ $$
 
 ##### Factor Theorem
 
-Continuation of the [[#Remainder Theorem | Remainder Theorem]]
+Continuation of the [Remainder Theorem](#remainder-theorem)
 
 Where if $P(r) = 0$ it means the remainder is $0$, meaning $(x-r)$ is a factor of $P(x)$ if $P(r) = 0$
 
@@ -716,7 +716,7 @@ Where if $P(r) = 0$ it means the remainder is $0$, meaning $(x-r)$ is a factor o
 - Look for common quadratic and cubic expansions
 - Look for common ratios between coefficients of terms to group
 - Try using the quadratic equation
-- Try [[#Completing the Square | Completing the Square]], its otherwise easier to just sub in for quadratic equation
+- Try [Completing the Square](#completing-the-square), its otherwise easier to just sub in for quadratic equation
 - If all else fails then guess and check might be in order,
 - Or use the Rational Root Theorem which states that a factor of the last term over that of the first term may be a factor.
 - Combining this with Factor Theorem which states that if $f(a) = 0$, then $(x - a)$ is a factor of $f(x)$
@@ -799,7 +799,7 @@ The modulus therefore describes the **distance from the origin to that specific 
 
 Draw it out and you will find out that the real number axis, imaginary number axis and the distance to the point creates a right-angled triangle *(because of how the axis are defined as perpendicular to each other i.e. $90^{^{\circ}}$ apart)*.
 
-Therefore, the modulus will follow the [[#Pythagorean Theorem | Pythagorean Theorem]]
+Therefore, the modulus will follow the [Pythagorean Theorem](#pythagorean-theorem)
 
 $$
 |z| = \sqrt{a^2 + b^2}
@@ -880,7 +880,7 @@ Combine into one single fraction with a factored numerator and denominator.
 
 ### --- Quadratic Equations
 
-- The fundamentals for this content is [[#Factoring Polynomials]]
+- The fundamentals for this content is [Factoring Polynomials](#----factoring-polynomials)
 - AGAIN, it is useful to always find the restrictions / invalid solutions of a polynomial before solving for it, i.e. when fractions/radicals are involved
 - Simplify the equations to a familiar form before applying the formula
 - Present the solutions separately
@@ -1020,7 +1020,7 @@ i.e. if $(y \cdots) \le 0$, and $y = 1$ is where it equals zero, $y = 1$ is an a
 
 ### --- Rational Inequalities
 
-- [[#Leading Term Analysis With Limit Testing | Leading Term Analysis With Limit Testing]]
+- [Leading Term Analysis With Limit Testing](#leading-term-analysis-with-limit-testing)
 - Whenever finding solutions are involved remember to keep its original form when you multiply or divide by $x$
 - You can shift the denominator to the side if it proves to be easier to do numerator calculations this way
 
@@ -1092,7 +1092,7 @@ $$
 
 Break down the equation into its readable form, and write down the derived parameters before drawing out the circle, makes less mistakes with double negatives
 
-- [[#Completing the Square | Completing the Square]] is useful for simplifying expressions into the familiar circle equation
+- [Completing the Square](#completing-the-square) is useful for simplifying expressions into the familiar circle equation
 
 ##### Drawing the Circle
 
@@ -1105,7 +1105,7 @@ Break down the equation into its readable form, and write down the derived param
 
 - Remember its $(x - h)$ and $(y - k)$, be careful around negatives again!
 - Don't skip steps
-- [[#Completing the Square | Completing the Square]]
+- [Completing the Square](#completing-the-square)
 
 ---
 
@@ -1123,7 +1123,7 @@ An easy way to determine if something is not a function
 
 ##### Finding Domain
 
-Usually this is just R. However, note the [[#Common Range Restrictions | Common Domain Restrictions]], and remember that we are solving for the unit variable, sometimes due to how the expressions are used, even if some of the Common Domain Restrictions apply, there may be no restriction over the Real Values
+Usually this is just R. However, note the [Common Domain Restrictions](#common-range-restrictions), and remember that we are solving for the unit variable, sometimes due to how the expressions are used, even if some of the Common Domain Restrictions apply, there may be no restriction over the Real Values
 
 ##### Finding Range
 
@@ -1289,7 +1289,7 @@ $$
 
 - Sum of any point on the hyperbola to the 2 foci is constant
 - Simply rearrange the equation to look like this and you are set
-- Leverage [[#Completing the Square |Completing the Square ]] if required
+- Leverage [Completing the Square](#completing-the-square) if required
 
 ---
 
@@ -1319,7 +1319,7 @@ $$
 
 - Difference between any point on the hyperbola and the 2 foci is constant
 - Simply rearrange the equation to look like this and you are set
-- Leverage [[#Completing the Square | Completing the Square]] if required
+- Leverage [Completing the Square](#completing-the-square) if required
 - Also, we need to draw the asymptotes now
 - Be careful when reading the coordinates for the centre, carrying over the habit of fast reading from circles and ellipses may result in switched coordinates here!
 - Same with reading a and b for the asymptote
@@ -1413,7 +1413,7 @@ Same logic apply to other transformations and opposite transformations
 ### --- Rational Functions
 
 - Drawing these graphs require finding asymptotes
-- Finding the ***x***-asymptote is easy enough by [[#Common Range Restrictions | Finding Restrictions]], but finding the ***y***-asymptote requires [[#Leading Term Analysis With Limit Testing | Leading Term Analysis With Limit Testing]], it is also useful to find which side of the ***y***-axis it starts on from the left.
+- Finding the ***x***-asymptote is easy enough by [Finding Restrictions](#common-range-restrictions), but finding the ***y***-asymptote requires [Leading Term Analysis With Limit Testing](#leading-term-analysis-with-limit-testing), it is also useful to find which side of the ***y***-axis it starts on from the left.
 
 ##### Limit Testing
 
@@ -1427,7 +1427,7 @@ $y \approx \dfrac{1}{x}$ as $y \rightarrow 0$
 If the terms cancel out leaving just the constants, then it tends to whatever the whole fraction is,
 $y \approx \dfrac{5}{6} \rightarrow \dfrac{5}{6}$
 
-Take note of the $x$-int and $y$-int when drawing your paired hyperbolic graphs just in case you forgot that [[#Leading Term Analysis With Limit Testing | Leading Term Analysis With Limit Testing]] also can determine which which side of the line it is on
+Take note of the $x$-int and $y$-int when drawing your paired hyperbolic graphs just in case you forgot that [Leading Term Analysis With Limit Testing](#leading-term-analysis-with-limit-testing) also can determine which side of the line it is on
 
 Also not all of the the lines will fit with all of the asymptotes
 
@@ -1497,7 +1497,7 @@ $$
 $$
 > where $P$ is the polynomial, $(x-r)$ is a factor, $r$ is the root/zero, $Q$ is Quotient, $R$ is Remainder
 
-- Not much to talk about, leverage [[#Synthetic Division | Synthetic Division]] and knowledge about [[#Quadratic Equations | Quadratic Equations]]
+- Not much to talk about, leverage [Synthetic Division](#synthetic-division) and knowledge about [Quadratic Equations](#quadratic-equations)
 
 ---
 
@@ -1510,10 +1510,10 @@ $$
 
 - Know its general shape so you know how it starts and how it will curve when it approaches a root.
 - However, the rest of the graph might not actually follow the shape all too closely as you might experience with graphs that has even-powered terms as the highest degree
-- Find its factors to get the roots. Check [[#Quadratic Equations | Quadratic Equations]]
+- Find its factors to get the roots. Check [Quadratic Equations](#quadratic-equations)
 - Write the roots in pencil under/above each factor for easy reference
-- Annotate those roots with even-powered factors because the polarity of a graph changes across that root (i.e. it crosses the ***x***-axis to the other side).  Check out [[#Parity Power Check | Parity Power Check]]
-- To find the side of y the graph starts from use [[#Leading Term Analysis With Limit Testing | Leading Term Analysis With Limit Testing]]
+- Annotate those roots with even-powered factors because the polarity of a graph changes across that root (i.e. it crosses the ***x***-axis to the other side).  Check out [Parity Power Check](#parity-power-check)
+- To find the side of y the graph starts from use [Leading Term Analysis With Limit Testing](#leading-term-analysis-with-limit-testing)
 - With all these tools at hand you ready to draw a roughly similar looking graph without needing to add more random points
 
 However, if a more accurate graph is needed
@@ -1536,7 +1536,7 @@ It is also true that if $P(a) < 0$  and  $P(b) > 0$ , then a root lies between a
 - You can use a division table to easily visualise all the combined factors of the constant and the coefficient of the highest degree term
 - Remove repeated factors
 
-Start testing all the factors both its positive and negative using [[#Factor Theorem | Factor Theorem]]
+Start testing all the factors both its positive and negative using [Factor Theorem](#factor-theorem)
 
 - Type out the equation in your graphical calculator and store the variables values into the variable for testing
 - Reuse previous expressions to save the typing
@@ -1601,7 +1601,7 @@ $$
 $$
 
 To find the values you can substitute values that cause other terms to collapse to 0, thus eliminated
-This is also called the **cover-up rule**, because you can cover up the other terms after you [[#Properties of Identities | substitute a convenient value]] that eliminates the rest of the terms.
+This is also called the **cover-up rule**, because you can cover up the other terms after you [substitute a convenient value](#properties-of-identities) that eliminates the rest of the terms.
 
 For this example,
 
@@ -1611,7 +1611,7 @@ For this example,
 - To find $B$,
   - Let $x=0$ to simplify the whole equation
   - Another method is to compare term coefficients, by comparing constants we get 1 = 4A - 2B - C.
-    We will explore this more in detail in [[#Example 3 - Term Coefficient Comparison | Example 3]]
+    We will explore this more in detail in [Example 3](#example-3---term-coefficient-comparison)
 
 ##### Example 2 - Continuation of cover-up rule
 
@@ -1673,7 +1673,7 @@ $\Huge{f(x) = b^x}$
 
 $\large{b^0 = 1}$
 
-- This is a different way to do repeated multiplication. Refer to [[#Integer Exponents / Power Functions | Power Functions]] for the other way
+- This is a different way to do repeated multiplication. Refer to [Power Functions](#----integer-exponents--power-functions) for the other way
 - Exponentials will always grow faster than Power Functions because the power part changes for exponentials instead of the base.
 - The power is much more influential on the size of the number than the base
 
@@ -1687,7 +1687,7 @@ $\Huge{f(x) = e^x}$
 
 ##### Graphing
 
-- Make use of [[#Transformations | Graph Transformations]] when drawing graphs
+- Make use of [Graph Transformations](#----transformations) when drawing graphs
 - Remember asymptotes exist for exponentials, and if you ever forget what the asymptote is just imagine $x$ and $y$ going into positive and negative infinity, the value that it approaches is the asymptote, also taking note that asymptotes change with **Graph Transformations** too
 
 ---
@@ -1728,13 +1728,13 @@ $\Huge{y = \log_b{x}}$
 | Change of base| $\log_a x = \frac{\log x}{\log a}$                 | Converts to base $10$ or base $e$    |
 
 > Logarithms and Exponentials are inverse functions
-> When graphing take note of its asymptote at $x = 0$, as well as the asymptote changes during [[#Transformations | Graph Transformations]]
+> When graphing take note of its asymptote at $x = 0$, as well as the asymptote changes during [Graph Transformations](#----transformations)
 
 ---
 
 ### --- Solving Exponential Functions
 
-- Leverage [[#Equivalence Relation | Equivalent Relation]] to easily solve some of the equations
+- Leverage [Equivalent Relation](#equivalence-relation) to easily solve some of the equations
 - If any side of the equation contains base $10$, use Common Log
 
 $$
@@ -1814,7 +1814,7 @@ Therefore, we can simplify an equation by replacing $y$-terms in terms of $x$-te
 
 ##### Elimination
 
-Since $a = b, c = d \Rightarrow a - c = b - d$  otherwise known as [[#Properties of Equality | Subtraction Property of Equality]]
+Since $a = b, c = d \Rightarrow a - c = b - d$  otherwise known as [Subtraction Property of Equality](#properties-of-equality)
 
 We can eliminate terms by having one of the variables in both equations to equal coefficients (this usually means the lowest common multiple)
 
@@ -1940,7 +1940,7 @@ But why not simultaneous sub up and down
 
 ### --- Nonlinear Systems
 
-The number of Common Zeros equals the product of the degrees of the polynomials. Check [[#Number of Common Zeros of n Polynomials / Bézout's Theorem | Bézout's Theorem]]
+The number of Common Zeros equals the product of the degrees of the polynomials. Check [Bézout's Theorem](#number-of-common-zeros-of-n-polynomials--bézouts-theorem)
 
 Using augmented matrices on non-linear systems are okay as long as the referenced variables in the matrix are consistent
 > i.e. we can do $x^2$ with $y^2$, $x^2$ with $y$, whatever, as long as they are present in all the equations
@@ -2049,7 +2049,7 @@ h is the perpendicular distance from one side to the other
 
 | Property   | Formula             |
 |------------|---------------------|
-| Area       | $lh$ or   $12pq$     |
+| Area       | $lh$ or $\tfrac{1}{2}pq$     |
 | Perimeter  | $4l$                |
 
 - A rhombus can be taken as a special case of parallelograms where all of its sides are equal
@@ -2118,7 +2118,7 @@ r is the radius of its great circle
 | Property      | Formula                                  |
 |---------------|------------------------------------------|
 | Volume        | $\dfrac{1}{3} (\text{Base} \times \text{Height})$ |
-| Surface Area  | $2 (\text{Base} \times \text{Height}) \space + \space \text{Base}$         |
+| Surface Area  | $\text{Base} + \frac{1}{2} \cdot \text{Perimeter} \cdot s$         |
 
 ##### Cylinder
 
@@ -2128,7 +2128,7 @@ r is the radius of its great circle
 
 | Property      | Formula                                            |
 |---------------|----------------------------------------------------|
-| Volume        | $2 (\text{Base} \times \text{Height})$      |
+| Volume        | $V = \text{Base}\times\text{Height}$      |
 | Surface Area  | $2 \pi r (r + h)$  or represented as $2 \pi r (r + h)$  |
 
 - Volume is simply base x height here
@@ -2145,7 +2145,7 @@ r is the radius of its great circle
 | Surface Area  | $\pi r (r + s)$  |
 
 - Volume derivation requires Integral Calculus to prove
-- Derivation of Surface Area comes from making a slanted cut on the slant side, then panning the 2D Shapes out, we will see that it forms a sector. We can then use the [[#Arc and Sector Formulas | Area of Sector Formula]] or use ideas of Calculus to get the surface area here
+- Derivation of Surface Area comes from making a slanted cut on the slant side, then panning the 2D Shapes out, we will see that it forms a sector. We can then use the [Area of Sector Formula](#arc-and-sector-formulas) or use ideas of Calculus to get the surface area here
 
 ---
 
@@ -2235,7 +2235,7 @@ $\dfrac{2 \pi}{360}$  Degrees or  $\dfrac{360}{2 \pi}$ Radians
 | Area of Sector | $\frac{1}{2} \theta r^2$        | Half the product of angle and radius squared |
 | Alt. Sector Area | $\frac{1}{2} \cdot \text{Arc Length} \cdot r$ | Equivalent form using arc length            |
 
-- The Arc Length formula comes from the fact that arc length and angle are [**tied by the definition of radians**](#bookmark=id.m79u0r246wse)
+- The Arc Length formula comes from the fact that arc length and angle are **tied by the definition of radians**
 - Hence, the simplification of $\dfrac{\theta}{2 \pi} \cdot 2 r \pi$, isn’t the most definitive reason
 
 - The Area of the Sector can be derived by slicing the sector into many negligibly small slices, each of those sectors would look like a small triangle. As the slices would approach the shape of a triangle as it gets smaller, we can approximate the area as the sum of those small triangles with $\dfrac{1}{2}bh$
@@ -2267,7 +2267,7 @@ $$
 
 <img src="right-triangle-pics/proof-of-side-ratio-constancy.png" width="350">
 
-With an extended hypotenuse and base, we can construct another bigger triangle that is similar to the original one, therefore, the ratios between the sides of a right-angled triangle stay constant as long as they are similar. Check out [[#Similarity and Congruence of Triangles | Similarity of Triangles]]
+With an extended hypotenuse and base, we can construct another bigger triangle that is similar to the original one, therefore, the ratios between the sides of a right-angled triangle stay constant as long as they are similar. Check out [Similarity of Triangles](#----similarity-and-congruence-of-triangles)
 
 With that said, similar triangles mean their angles are the same, this means we can tie the ratios of the side of a right-angled triangle to the acute angles within the triangle.
 Therefore the ratios of the sides of a right-angled triangle can be said to be determined by either acute angles of a right-angled triangle.

@@ -1,0 +1,22 @@
+# Quartz build output + caches (regenerable via npx quartz build)
+public/
+.quartz/
+.quartz-cache
+node_modules/
+tsconfig.tsbuildinfo
+
+# Obsidian local config (not part of site)
+.obsidian/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Python caches
+__pycache__/
+*.pyc
+
+# Editor swapfiles
+*.swp
+*.swo
+test-results/

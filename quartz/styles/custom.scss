@@ -1,0 +1,152 @@
+@use "./variables.scss" as *;
+
+// Primary 2.10.0 reading-view port (light mode).
+// Snippet sources live in the author's Obsidian vault; Quartz equivalents below.
+// Palette (Primary light tokens): paper #f9f3ec, sidebar #eee7dd,
+// border #e4d8c3, text #523e22, muted #836b49, accent #a2815d.
+
+// --- 1. paper-background-light: warm paper background in light mode ---
+// (functionally covered by `light: #f9f3ec` in quartz.config.yaml;
+// hardened here so article chrome matches even where vars don't reach)
+body {
+  background-color: #f9f3ec;
+}
+[saved-theme="dark"] body {
+  background-color: var(--light);
+}
+
+// --- 2. wider-margins: readable line length 800px (math needs width; single page, no right sidebar) ---
+body {
+  --file-line-width: 800px;
+}
+.center > article {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// --- 3. bigger-latex: larger math (Quartz renders KaTeX; MathJax kept for parity) ---
+article .katex,
+article .MathJax,
+article mjx-container.MathJax {
+  font-size: 1.2em;
+}
+
+// --- 4. bold-links: bold, no underline; internal = accent, external = muted ---
+article a {
+  font-weight: bold;
+  text-decoration: none;
+}
+article a.internal {
+  color: var(--secondary);
+}
+article a:not(.internal) {
+  color: var(--darkgray);
+}
+
+// --- 5. keep-unwrapped (scoped, Loop 3): nowrap only >=1024px so it cannot force scroll ---
+@media (min-width: 1024px) {
+  article table td:nth-child(2) {
+    white-space: nowrap;
+  }
+}
+
+// --- 6. table-auto-size: content-sized tables, never stretched ---
+article table {
+  table-layout: auto !important;
+  width: auto !important;
+  max-width: 100% !important; // S6+S7 conflict resolved: cap wins
+}
+
+// --- 7. table-centre-element: responsive cap + airy top-aligned cells ---
+// (after table-auto-size, matching Obsidian snippet cascade order)
+article table {
+  max-width: 100% !important;
+}
+article table td,
+article table th {
+  padding-bottom: 1em !important;
+  vertical-align: top !important;
+}
+
+// --- 8. thick-cursor removed (2026-10-02 refactor): editor-only CodeMirror, no match in static build ---
+
+
+// --- 9. base-density: 90% reading scale (Loop 3) ---
+html {
+  font-size: 90%;
+}
+
+// --- 10. explorer-ellipsis (Loop 4): 1-line truncate + de-bold + vertical spacing (Loop 8 revert fix) ---
+.explorer a,
+.explorer .folder-title,
+.explorer .folder-title span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
+  max-width: 100%;
+  font-weight: 400;
+}
+.explorer {
+  min-width: 0;
+}
+.explorer .explorer-content ul {
+  gap: 0.35rem;
+}
+.explorer .explorer-content li {
+  padding: 0.15rem 0;
+}
+.explorer .folder-outer {
+  margin: 0.2rem 0;
+}
+
+// --- 11. explorer-loop6 toolbar (Loop 6 retry): expand-all only (F1), scoped to .explorer only ---
+.explorer .explorer-loop6-toolbar {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.25rem 0 0.5rem;
+  position: sticky;
+  top: 0;
+  background-color: var(--light);
+  z-index: 2;
+}
+.explorer .explorer-loop6-btn {
+  background-color: transparent;
+  border: 1px solid var(--lightgray);
+  border-radius: 4px;
+  color: var(--secondary);
+  font-family: var(--headerFont);
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.4;
+  padding: 0.15rem 0.55rem;
+  cursor: pointer;
+}
+.explorer .explorer-loop6-btn:hover {
+  color: var(--tertiary);
+  border-color: var(--gray);
+}
+
+
+// --- 12. explorer-no-toggle (2026-10-02): remove desktop collapse toggle, keep title static ---
+// Upstream @quartz-community/explorer renders button.title-button.explorer-toggle.desktop-explorer
+// (h2 Explorer + svg.fold) whose handler toggles .collapsed on div.explorer. Zero-blast-radius
+// removal: make it non-interactive + hide its fold arrow. Untouched: mobile-explorer toggle,
+// .explorer-loop6-toolbar (expand-all F1 + sort F2), .folder-icon/.folder-button chevrons (F3 locate).
+.explorer button.desktop-explorer.explorer-toggle {
+  pointer-events: none;
+  cursor: default;
+}
+.explorer button.desktop-explorer.explorer-toggle .fold {
+  display: none;
+}
+// Safety: stale .collapsed must never hide content on desktop.
+@media all and (min-width: 801px) {
+  .explorer.collapsed .explorer-content {
+    display: block;
+  }
+  .explorer.collapsed {
+    flex-basis: auto;
+  }
+}

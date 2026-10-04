@@ -1,5 +1,7 @@
 # Paul's Math Notes
 
+**Live site:** https://icemedica341.github.io/pauls-math-notes/
+
 A personal study record covering algebra through trigonometry — definitions
 clarified, procedures summarised, and hard-won gotchas written down so they
 stick.
