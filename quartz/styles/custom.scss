@@ -1,4 +1,5 @@
 @use "./variables.scss" as *;
+@use "sass:list";
 
 // Primary 2.10.0 reading-view port (light mode).
 // Snippet sources live in the author's Obsidian vault; Quartz equivalents below.
@@ -99,79 +100,153 @@ html {
   box-sizing: border-box; // C5 fix 2: padding was added outside width (content-box), forcing 72px horizontal overflow
 }
 
-// --- 11. toc-like-explorer (C5 fix 1 + fix 5): no dim/fade, active = explorer selected-file
-// highlight (opacity 1 + tertiary, cf. explorer a.active); single-line ellipsis like cs-notes ---
-ul.toc-content.overflow > li > a {
-  opacity: 1 !important;
-  display: block;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  max-width: 100%;
-}
-ul.toc-content.overflow > li > a.in-view {
-  opacity: 1 !important;
-  color: var(--tertiary);
-}
-
-// --- 12. toc-dwell-reveal: ellipsized entries reveal the full name only after dwell
-// intent (~450ms, see toc-dwell.inline.ts which renders a fixed-position popup).
-// The popup is one line (nowrap), overlaid in place: surrounding entries never
-// wrap or shift. The in-flow link keeps its ellipsis.
+// --- 11. toc explorer base: no dim/fade, active = explorer
+// selected-file highlight (tertiary, cf. explorer a.active); single-line ellipsis ---
 ul.toc-content.overflow {
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: hidden auto;
   max-height: calc(100vh - 12rem);
   overscroll-behavior: contain;
 }
 ul.toc-content.overflow > li {
   position: relative;
 }
-.toc-dwell-popup {
-  position: fixed;
-  z-index: 100;
-  white-space: nowrap;
-  max-width: calc(100vw - 2rem);
+ul.toc-content.overflow > li > a {
+  // E1 folder typography (verbatim cs-notes .folder-title values).
+  // NOTE: supersedes A8 darkgray/400 per spec E1 (hover/active tertiary kept).
+  color: var(--secondary);
+  opacity: 1 !important;
+  font-family: var(--headerFont);
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 1.5rem;
+  display: block; // block (not folder inline-block): required for ellipsis + dwell measure; visually identical single line
   overflow: hidden;
   text-overflow: ellipsis;
-  background-color: var(--light);
-  border: 1px solid var(--lightgray);
-  border-radius: 4px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-  color: var(--dark);
-  font-size: 0.9rem;
-  padding: 0.15rem 0.5rem;
-  pointer-events: none;
+  white-space: nowrap;
+  max-width: 100%;
+}
+// Link hover: verbatim copy of cs-notes explorer
+// `.folder-container div > a:hover { color: var(--tertiary); }`
+// (same property, same value; selector adapted to the TOC rows).
+ul.toc-content.overflow > li > a:hover {
+  color: var(--tertiary);
+}
+ul.toc-content.overflow > li > a.active {
+  opacity: 1 !important;
+  color: var(--tertiary);
 }
 
-// --- 12b. toc-explorer (cs-notes port): collapsible groups, toolbar,
-// indentation guides. Entries collapsed by their group hide via .toc-hidden.
+
+// --- 12. dwell in-place expansion: the overlay IS the row grown wider ---
+// (toc.inline.ts copies the row's computed font/color/background/
+// padding onto it, so it reads as the row itself; no border, no shadow, no box).
+// Single line, never wraps; surrounding entries never shift (fixed overlay);
+// mouseleave/scroll/Escape removes it and the ellipsis returns.
+.toc-dwell-inline {
+  position: fixed;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  white-space: nowrap;
+  pointer-events: none;
+  font-weight: normal;
+}
+
+
+// --- 12b. toc explorer groups (cs-notes explorer port): chevron collapse, toolbar,
+// indentation guides. Collapsed groups hide their rows via .toc-hidden.
+// Group collapse animation: exact port of cs-notes explorer
+// .explorer-content .folder-outer (grid 0fr/1fr + visibility transition).
+// Flat-list adaptation: each row is its own grid; hidden rows collapse to 0fr.
+ul.toc-content.overflow > li {
+  display: grid;
+  grid-template-rows: 1fr;
+  visibility: visible;
+  transition-property: grid-template-rows, visibility;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
+}
 ul.toc-content.overflow > li.toc-hidden {
-  display: none;
+  visibility: collapse;
+  grid-template-rows: 0fr;
 }
-ul.toc-content.overflow > li.toc-group > button.toc-fold {
-  background: none;
+ul.toc-content.overflow > li > * {
+  overflow: hidden;
+  min-height: 0;
+}
+// Group header row: copy of cs-notes explorer .folder-container.
+ul.toc-content.overflow > li:has(> button.toc-fold) {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  user-select: none;
+}
+// Chevron: copy of cs-notes explorer .folder-icon (12x12 svg, secondary,
+// 5px right margin, 0.3s ease, -90deg when shut, tertiary hover).
+ul.toc-content.overflow > li > button.toc-fold {
+  background: transparent;
   border: none;
+  padding: 0;
+  margin-right: 5px;
+  color: var(--secondary);
   cursor: pointer;
-  color: var(--darkgray);
-  font-size: 0.8rem;
-  line-height: 1;
-  padding: 0 0.25rem 0 0;
-  transition: transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
 }
-ul.toc-content.overflow > li.toc-group.toc-collapsed > button.toc-fold {
+ul.toc-content.overflow > li > button.toc-fold > svg {
+  transition: transform 0.3s ease;
+  backface-visibility: visible;
+  flex-shrink: 0;
+  pointer-events: none;
+}
+ul.toc-content.overflow > li.toc-collapsed > button.toc-fold > svg {
   transform: rotate(-90deg);
 }
-ul.toc-content.overflow > li.toc-group > a {
-  display: inline-block;
-  max-width: calc(100% - 1.25rem);
+ul.toc-content.overflow > li > button.toc-fold:hover {
+  color: var(--tertiary);
+}
+ul.toc-content.overflow > li:has(> button.toc-fold) > a {
+  flex: 1;
+  min-width: 0;
   vertical-align: middle;
 }
-// indentation guide lines for nested entries (depth 1+)
-ul.toc-content.overflow > li:not(.depth-0) > a {
-  border-left: 1px solid var(--gray);
-  padding-left: 0.5rem;
+// D1 leaf spacer (locked answer 2): chevron-less rows reserve the exact chevron
+// slot (12px icon + 5px margin = 17px), uniform at every depth incl. depth-0,
+// so all entry names sit in one column.
+ul.toc-content.overflow > li:not(:has(> button.toc-fold)) > a {
+  margin-left: 17px;
 }
+// Each li is indented one 0.8rem step per depth (whole row incl. chevron,
+// like explorer's nested uls). Guides (C1-C3): ONE line per ancestor level,
+// each at that level's chevron centre (l*step + 6px), drawn by EVERY descendant
+// row — so a parent's line runs unbroken through ALL children to the last
+// one (continuous by construction, like cs-notes nested ul border). Token is
+// theme-adaptive var(--lightgray) in both modes (locked answer 1).
+$toc-step: 0.8rem;
+@for $d from 0 through 6 {
+  ul.toc-content.overflow > li.depth-#{$d} {
+    padding-left: $toc-step * $d;
+    @if $d > 0 {
+      $imgs: ();
+      $sizes: ();
+      $poss: ();
+      @for $l from 0 through ($d - 1) {
+        $imgs: list.append($imgs, linear-gradient(var(--lightgray), var(--lightgray)), comma);
+        $sizes: list.append($sizes, 1px 100%, comma);
+        $poss: list.append($poss, calc(#{$l} * #{$toc-step} + 6px) 0, comma);
+      }
+      background-image: $imgs;
+      background-size: $sizes;
+      background-position: $poss;
+      background-repeat: no-repeat;
+    } @else {
+      background-image: none;
+    }
+  }
+}
+// Toolbar: copy of cs-notes explorer-loop6 toolbar minus the sort toggle.
 .toc-explorer-toolbar {
   display: flex;
   gap: 0.5rem;
@@ -219,7 +294,35 @@ div.toc {
 div.toc > button.toc-header {
   pointer-events: none;
   cursor: default;
+  padding: 0;
+  color: var(--dark);
+  display: flex;
+  align-items: center;
 }
 div.toc > button.toc-header .fold {
   display: none;
+}
+// Title parity with cs-notes explorer title (button.desktop-explorer h2,
+// 1rem, header font, dark): same element position (first in pane) + styling.
+div.toc > button.toc-header h3 {
+  font-family: var(--headerFont);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--dark);
+  display: inline-block;
+  margin: 0;
+}
+
+
+
+// --- 15. deep-heading legibility: h4-h6 keep their hierarchy but render
+// large enough to read as section headers (TECHNICAL NOTES sub-headers) ---
+.center article h4 {
+  font-size: 1.15rem;
+}
+.center article h5 {
+  font-size: 1.05rem;
+}
+.center article h6 {
+  font-size: 1rem;
 }

@@ -64,9 +64,6 @@ Use the Document tab on the left-hand side to navigate between different section
 [ALGEBRA](#-algebra) contains notes I wanted to clarify or summarise on each algebra section of Paul’s Online Math Notes
 
 [TRIGONOMETRY](#trigonometry) contains trigonometry essentials that I gathered from [Sullivan’s Algebra and Trigonometry](https://home.ufam.edu.br/andersonlfc/Nivelamento_Matem%C3%A1tica/Algebra%20&%20Trigonometry%20-%20Sullivan/Sullivan%20Algebra%20&%20Trigonometry%209th%20txtbk.pdf)
-  
-[CALCULUS I](#-calculus-i) doesn’t yet contain anything as while proving the rules, I learnt so much that I wrote it in jupyter notebooks instead. Straying away from this note. If I ever come back I will consider adding it here
-
 *————— With that said, let’s dive into the meat of it all*
 
 ---
@@ -93,7 +90,7 @@ Use the Document tab on the left-hand side to navigate between different section
 
 \- Always helpful to draw out the question so as to visualise better
 
-\- As always, making the question into the familiar form is very helpful, don’t be arrogant and then make mistakes later, we are all human, we see this and we think oh I can do it I got this intuitively, and then some simple mistake is made because it slipped your mortal non-machine minds
+\- Assuming you've got it and skipping steps is how sign errors survive. Write everything out.
 
 ---
 
@@ -101,7 +98,7 @@ Use the Document tab on the left-hand side to navigate between different section
 
 \- Glossing over working too rapidly thus making calculation mistakes
 
-\- Expand everything, do not skip steps
+\- Expand everything. Skipped steps are where sign errors hide.
 
 \- Be sure to look through all possible restrictions.
 
@@ -165,7 +162,7 @@ denominator radicands can't be equal to zero
 
 ---
 
-#### Properties of Equality
+## Properties of Equality
 
 | **Property**              | **Rule**                                       | **Explanation**                                      |
 |--------------------------|-------------------------------------------------|------------------------------------------------------|
@@ -178,7 +175,7 @@ denominator radicands can't be equal to zero
 | Division                 | If $a = b$ and $c \ne 0$, then $\dfrac{a}{c} = \dfrac{b}{c}$         | Dividing by same nonzero value preserves equality<br><br>    |
 | Substitution Property    | If $a = b$, <br>then they substitute each other | Interchangeable in any expression<br><br>          |
 
-#### Equivalence Relation
+## Equivalence Relation
 
 $\large{\text{If} \space f(a)=f(b), \space \text{then} \space a=b}$
 If a function never repeats an output — each output comes from exactly one input (it passes the horizontal-line test) — then $f(a)=f(b)$ forces $a=b$.
@@ -189,7 +186,7 @@ Whenever we multiply the entire equation by a variable, or we do some operation 
 
 When encountering a radical, a fraction, an absolute value, trigonometric functions, write down the restrictions and combine them into 1 single restriction so you can check your answers against it.
 
-#### Negative of a Difference
+## Negative of a Difference
 
 $$
 \large{
@@ -242,7 +239,7 @@ $$
 
 This is now equivalent to ***a - b***, where ***b > a***
 
-#### Fractional Representation of Multiplication and Division
+## Fractional Representation of Multiplication and Division
 
 > Multiplication can be thought of as **amounts of the same something**
 > Division can be thought of as the **subparts of the same something**
@@ -258,21 +255,21 @@ $$
 **The division sign $(\div)$ and multiplication sign ($\times$) are almost never used for operations on single numbers as *fractional representations* have proven to be more convenient**
 
 
-#### Zero-Product Property
+## Zero-Product Property
 
 $\large{\text{If} \space ab = 0, \text{then} \space a=0 \space \text{or} \space b=0}$
 
 This is commonly used for quadratic equations, but it is a generally very helpful property of zero-products to know and use
 
-#### Division by Zero
+## Division by Zero
 
 Multiplication by $0$ will give zero, but division by $0$ doesn’t have one defined answer (the answer can be anything. I.e. it can be 1 ,2, 3, …), this inconsistency causes division by zero to remain undefined in its formal definition.
 
-#### Solving Equations with Fractions
+## Solving Equations with Fractions
 
 Always assume denominators are non-zero to avoid division by zero, it is defined within the mathematical definition of division to avoid inconsistencies.
 
-#### Inverses and Reciprocals
+## Inverses and Reciprocals
 
 An **Inverse** is a general concept where things are **direct opposites of each other**.
 
@@ -302,7 +299,7 @@ Thus resulting in **no net change**
 > E.g. a + b - b = a
 > E.g. 1/(1/x) = x 
 
-#### Cross Multiplication — Numerator Comparison Simplification
+## Cross Multiplication — Numerator Comparison Simplification
 
 While solving an algebraic equation, very often we might get 2 fractions equalling each other.
 
@@ -365,7 +362,7 @@ Therefore, cross-multiplication works because of the reasoning behind it, not ju
 
 Just always remember this is a trick, not the most direct property of algebraic manipulation
 
-#### Common Range Restrictions
+## Common Range Restrictions
 
 **Domain Restrictions**
 > Denominator  $\ne 0$, (see [Division by Zero](#division-by-zero))
@@ -395,12 +392,12 @@ $b^x > 0$, thus $b^x = p > 0$ in $\log_b{p}$
 
 However, $\log_b{p} \in \mathbb{R}$  , since any power is possible
 
-#### Restrictions of Trigonometric Functions
+## Restrictions of Trigonometric Functions
 
 $-1 \le \sin{x} \le 1 \space ————— \space \sec{x} \le -1 , \sec{x} \ge 1$
 $-1 \le \cos{x} \le 1 \space ————— \space \csc{x} \le -1 , \csc{x} \ge 1$
 
-#### Parameters and Variables
+## Parameters and Variables
 
 In something like $y = mx + c$
 
@@ -409,20 +406,20 @@ In something like $y = mx + c$
 
 Even though in the general sense they are all variables, $x$, $y$ are variables the whole way through but $m$, $c$ become constants once they are defined.
 
-#### Properties of Identities
+## Properties of Identities
 
 An identity is an equation that remains true for all permissible values of the variable.
 
 This will come to be very helpful when you need to find the value of undefined constant, and you can substitute convenient values of $x$ to remove big bracketed factors to just $1$ or $0$ depending on your needs
 
-#### Triangle Inequality
+## Triangle Inequality
 
 $$
 \large{a + b \ge c}
 $$
 > where $c$ is the longest side, $a$ and $b$ are the other 2 sides of ANY Triangle (equality only for a degenerate flat triangle — a straight line with no height, not a proper triangle)
 
-#### Pythagorean Theorem
+## Pythagorean Theorem
 
 $$
 \large{a^2 + b^2 = c^2}
@@ -442,13 +439,13 @@ $$
 - $(16, 63, 65)$
 - $(20, 21, 29)$
 
-#### Isosceles Triangle Properties
+## Isosceles Triangle Properties
 
 NOTE: Equilateral Triangles are also isosceles triangles, they are just isosceles 2 ways
 
 In an isosceles triangle, the angle bisector of the vertex angle is the perpendicular bisector of the base.
 
-#### Quadratic Equations
+## Quadratic Equations
 
 Quadratic Equations comes in this form
 
@@ -526,7 +523,7 @@ $$
 }
 $$
 
-#### Completing the Square
+## Completing the Square
 
 $$
 \begin{align}
@@ -540,7 +537,7 @@ Hence  $x^2 \pm ax = \left(x \pm \frac{a}{2}\right)^2 - \left(\frac{a}{2}\right)
 
 When collapsing completing the square, read the first term and the sign after it, and then read the last term's base. That would be efficient and mistake-proof.
 
-#### Opposite-sign Solution Pairs
+## Opposite-sign Solution Pairs
 
 When we get something like $x = \pm 2$, then $y = -x$ , we actually get $y = \mp 2$
 
@@ -552,7 +549,7 @@ List the solutions using opposite-sign pair notation is not as clear when it is 
 
 It is therefore recommended to just expand out all the solutions when doing so
 
-#### Number of Common Zeros of n Polynomials / Bézout's Theorem
+## Number of Common Zeros of n Polynomials / Bézout's Theorem
 
 The **maximum** number of common zeros equals the product of the degrees of the polynomials
 
@@ -566,14 +563,14 @@ $$
 $$
 
 Maximum Number of Common Zeroes
-$\begin{align}&= 2 \cdot 2 \\ &= 4\end{align}$
+$$2 \cdot 2 = 4$$
 
 **Refresher**
 
 - The degree of a polynomial is the largest degree among all the terms
 - The degree of a term is found by summing the exponents of all **unique variables** present in that term
 
-#### Parametric Form
+## Parametric Form
 
 It is a simplification of parameters by restating every equation in terms of one other parameter allowing one parameter to be substituted into all the relevant equations
 
@@ -816,7 +813,7 @@ $$
 |z| = \sqrt{a^2 + b^2}
 $$
 
-Of course you will find that trivially the modulus of complex expressions without **a** or **b** will just be $|a+0i|=|a|$, $|0+bi|=|b|$
+Plot (3,4): hypotenuse 5, so $|3+4i| = 5$. Similarly $|a+0i|=|a|$, $|0+bi|=|b|$.
 
 **Properties of Complex Numbers**
 Due to the [**Triangle Inequality**](#triangle-inequality),
@@ -901,7 +898,7 @@ Combine into one single fraction with a factored numerator and denominator.
 
 ### --- Applications of Quadratic Equations
 
-- Just read the question properly and lock in
+- Most misses here are misreading, not math. Read twice, define x first.
 - Also preserve the real answer for calculating other figures and not use the approximated value for internal calculations
 - If numbers get too big just put them in uncalculated form
 
@@ -1127,10 +1124,10 @@ The point of functions is that we can reliably use it to determine d
 
 A function has 1 non-unique $y$-value per $x$-value. The other way around is fine as long as this is satisfied.
 
-An easy way to determine if something is not a function
+An easy way to tell if something has no inverse function
 
-- Not a function if the power of $y$ is even
-- Not a function if absolute values are involved
+- No inverse function (fails the horizontal-line test) if $y$ itself is squared, e.g. $y^2 = x$
+- No inverse function if $y$ is inside an absolute value, e.g. $y = |x|$ — still a function, just no inverse
 
 ##### Finding Domain
 
@@ -1490,7 +1487,7 @@ $$
 This is the full equation
 
 - Beware that some equations don’t have all the power terms, they may be missing an $x^2$ so you have to spot that and account for it with $0$
-- So, not much way going about this, just practice more and you shall become more meticulous in your calculations
+- Five of these, then redo the misses.
 
 ---
 
@@ -1507,7 +1504,6 @@ $$
 $$
 > where $P$ is the polynomial, $(x-r)$ is a factor, $r$ is the root/zero, $Q$ is Quotient, $R$ is Remainder
 
-- Not much to talk about, leverage [Synthetic Division](#synthetic-division) and knowledge about [Quadratic Equations](#quadratic-equations)
 
 ---
 
@@ -2039,7 +2035,7 @@ For most of these just draw it out, you will find why it is correct
 
 The second Area formula is called **Heron's Formula**, which relates the area of a triangle through its sides
 
-Not taught in school
+School skipped Heron for us. It matters for SSS triangles with no height — that's the case to remember.
 
 ##### Parallelogram
 
@@ -2222,7 +2218,7 @@ By convention:
 - Of course you have to take note that the angle is less than $2\pi$ in the first place, or make it within $2\pi$ through modulo (aka finding the remainder)
 - Also do take note that **this only works in radians**, it will not work on degrees because there isn’t such a simple connection between degrees and the Arc Length.
 
-- Since $2 \pi$ radians is also $360^{\circ}$, we find that $\pi$ radians = $180^{\circ}$. Wow! That’s pretty convenient!
+- Since $2 \pi$ radians is also $360^{\circ}$, $\pi$ radians = $180^{\circ}$. Worth memorizing: everything after this assumes radians.
 
 $$
 \begin{align}
@@ -2345,7 +2341,7 @@ The unit circle is really useful to finding relationships between trigonometric 
 <img src="right-triangle-pics/pythagorean-sec-tan-identity.png" width="300">
 <img src="right-triangle-pics/pythagorean-cosec-cot-identity.png" width="300">
 
-The above are helpful representations of trigonometric functions, derive them by yourself see if you can find out why
+The above are helpful representations of trigonometric functions. Try one yourself first, the pattern shows up faster in your own working.
 
 <img src="right-triangle-pics/special-right-angled-triangles.png" width="350">
 
@@ -2360,42 +2356,6 @@ The above are helpful representations of trigonometric functions, derive them by
 | Cotangent–Cosecant    | $\cot^2 x + 1 = \csc^2 x$            |
 
 <img src="right-triangle-pics/all-trig-identities-in-one-triangle.png" width="400">
-
----
-
-### --- Unit Circle
-
----
-
-### --- More Trigonometric Functions
-
----
-
-# 📊 CALCULUS I
-
-## REVIEW
-
-### --- Functions
-
-### --- Inverse Functions
-
-### --- Trigonometric Functions
-
-### --- Solving Trigonometric Functions
-
-### --- Solving Trigonometric Functions with Calculators Part 1
-
-### --- Solving Trigonometric Functions with Calculators Part 2
-
-### --- Exponential Functions
-
-### --- Logarithmic Functions
-
-### --- Exponential and Logarithmic Functions
-
-### --- Common Graphs
-
----
 
 # 📚 Resources
 
