@@ -32,14 +32,58 @@ async function mouseEnterHandler(
     if (hash !== "") {
       const inner = popoverElement.querySelector(".popover-inner") as HTMLElement | null
       if (inner) {
+        // The cached popover holds the whole article, so restore the full
+        // content first: re-hovering another section must start unpruned.
+        if (popoverElement.dataset.fullHtml !== undefined) {
+          inner.innerHTML = popoverElement.dataset.fullHtml
+        }
         const targetAnchor = `#popover-internal-${hash.slice(1)}`
         const heading = inner.querySelector(targetAnchor) as HTMLElement | null
         if (heading) {
-          // leave ~12px of buffer when scrolling to a heading
-          inner.scroll({ top: heading.offsetTop - 12, behavior: "instant" })
+          if (popoverElement.dataset.fullHtml === undefined) {
+            popoverElement.dataset.fullHtml = inner.innerHTML
+          }
+          // Show only this section: drop everything before the target
+          // heading and everything from the next same-or-higher-level
+          // heading onward. Falls back to scroll-to-heading for
+          // non-heading anchors (callouts, tables, ...).
+          if (scopeToSection(inner, heading)) {
+            inner.scroll({ top: 0, behavior: "instant" })
+          } else {
+            // leave ~12px of buffer when scrolling to a heading
+            inner.scroll({ top: heading.offsetTop - 12, behavior: "instant" })
+          }
         }
       }
     }
+  }
+
+  // Prune the popover clone down to the section owned by `heading`:
+  // the heading plus following siblings up to (excluding) the next
+  // heading of the same or higher level. `<hr>` separators carry no
+  // section semantics and never terminate. Returns false when `heading`
+  // is not a heading element (caller keeps the old scroll behavior).
+  function scopeToSection(inner: HTMLElement, heading: HTMLElement): boolean {
+    const m = heading.tagName.match(/^H([1-6])$/i)
+    if (!m) return false
+    const level = Number(m[1])
+    const parent = heading.parentElement
+    if (!parent) return false
+    const kids = [...parent.children]
+    const start = kids.indexOf(heading)
+    if (start === -1) return false
+    let end = kids.length
+    for (let i = start + 1; i < kids.length; i++) {
+      const mm = kids[i].tagName.match(/^H([1-6])$/i)
+      if (mm && Number(mm[1]) <= level) {
+        end = i
+        break
+      }
+    }
+    for (let i = kids.length - 1; i >= end; i--) kids[i].remove()
+    for (let i = start - 1; i >= 0; i--) kids[i].remove()
+    void inner
+    return true
   }
 
   const targetUrl = new URL(link.href)

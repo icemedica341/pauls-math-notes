@@ -77,32 +77,102 @@ html {
   font-size: 90%;
 }
 
-// --- 10. explorer-ellipsis (Loop 4): 1-line truncate + de-bold + vertical spacing (Loop 8 revert fix) ---
-.explorer a,
-.explorer .folder-title,
-.explorer .folder-title span {
+// --- 10. single-page layout: no right sidebar — collapse its grid column ---
+// (explorer/graph/backlinks all disabled; the empty right track squeezed content)
+#quartz-body {
+  grid-template-columns: #{$sidePanelWidth} minmax(0, 1fr) !important;
+  grid-template-areas:
+    "grid-sidebar-left grid-header"
+    "grid-sidebar-left grid-center"
+    "grid-sidebar-left grid-footer" !important;
+  & .sidebar.right {
+    display: none;
+  }
+}
+.center {
+  width: 100%;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+  box-sizing: border-box; // C5 fix 2: padding was added outside width (content-box), forcing 72px horizontal overflow
+}
+
+// --- 11. toc-like-explorer (C5 fix 1 + fix 5): no dim/fade, active = explorer selected-file
+// highlight (opacity 1 + tertiary, cf. explorer a.active); single-line ellipsis like cs-notes ---
+ul.toc-content.overflow > li > a {
+  opacity: 1 !important;
+  display: block;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  display: block;
   max-width: 100%;
-  font-weight: 400;
 }
-.explorer {
-  min-width: 0;
-}
-.explorer .explorer-content ul {
-  gap: 0.35rem;
-}
-.explorer .explorer-content li {
-  padding: 0.15rem 0;
-}
-.explorer .folder-outer {
-  margin: 0.2rem 0;
+ul.toc-content.overflow > li > a.in-view {
+  opacity: 1 !important;
+  color: var(--tertiary);
 }
 
-// --- 11. explorer-loop6 toolbar (Loop 6 retry): expand-all only (F1), scoped to .explorer only ---
-.explorer .explorer-loop6-toolbar {
+// --- 12. toc-dwell-reveal: ellipsized entries reveal the full name only after dwell
+// intent (~450ms, see toc-dwell.inline.ts which renders a fixed-position popup).
+// The popup is one line (nowrap), overlaid in place: surrounding entries never
+// wrap or shift. The in-flow link keeps its ellipsis.
+ul.toc-content.overflow {
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: calc(100vh - 12rem);
+  overscroll-behavior: contain;
+}
+ul.toc-content.overflow > li {
+  position: relative;
+}
+.toc-dwell-popup {
+  position: fixed;
+  z-index: 100;
+  white-space: nowrap;
+  max-width: calc(100vw - 2rem);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background-color: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  color: var(--dark);
+  font-size: 0.9rem;
+  padding: 0.15rem 0.5rem;
+  pointer-events: none;
+}
+
+// --- 12b. toc-explorer (cs-notes port): collapsible groups, toolbar,
+// indentation guides. Entries collapsed by their group hide via .toc-hidden.
+ul.toc-content.overflow > li.toc-hidden {
+  display: none;
+}
+ul.toc-content.overflow > li.toc-group > button.toc-fold {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--darkgray);
+  font-size: 0.8rem;
+  line-height: 1;
+  padding: 0 0.25rem 0 0;
+  transition: transform 0.2s ease;
+}
+ul.toc-content.overflow > li.toc-group.toc-collapsed > button.toc-fold {
+  transform: rotate(-90deg);
+}
+ul.toc-content.overflow > li.toc-group > a {
+  display: inline-block;
+  max-width: calc(100% - 1.25rem);
+  vertical-align: middle;
+}
+// indentation guide lines for nested entries (depth 1+)
+ul.toc-content.overflow > li:not(.depth-0) > a {
+  border-left: 1px solid var(--gray);
+  padding-left: 0.5rem;
+}
+.toc-explorer-toolbar {
   display: flex;
   gap: 0.5rem;
   padding: 0.25rem 0 0.5rem;
@@ -111,7 +181,7 @@ html {
   background-color: var(--light);
   z-index: 2;
 }
-.explorer .explorer-loop6-btn {
+.toc-explorer-btn {
   background-color: transparent;
   border: 1px solid var(--lightgray);
   border-radius: 4px;
@@ -123,30 +193,33 @@ html {
   padding: 0.15rem 0.55rem;
   cursor: pointer;
 }
-.explorer .explorer-loop6-btn:hover {
+.toc-explorer-btn:hover {
   color: var(--tertiary);
   border-color: var(--gray);
 }
 
+// --- 13. provenance-callout (fix 2): quiet note near top, Primary tokens, visible but not loud ---
+.callout[data-callout="note"] {
+  border-color: var(--gray);
+  background-color: color-mix(in srgb, var(--lightgray) 40%, transparent);
+}
+.callout[data-callout="note"] > .callout-title {
+  color: var(--gray);
+}
+.callout[data-callout="note"] > .callout-content {
+  color: var(--darkgray);
+}
 
-// --- 12. explorer-no-toggle (2026-10-02): remove desktop collapse toggle, keep title static ---
-// Upstream @quartz-community/explorer renders button.title-button.explorer-toggle.desktop-explorer
-// (h2 Explorer + svg.fold) whose handler toggles .collapsed on div.explorer. Zero-blast-radius
-// removal: make it non-interactive + hide its fold arrow. Untouched: mobile-explorer toggle,
-// .explorer-loop6-toolbar (expand-all F1 + sort F2), .folder-icon/.folder-button chevrons (F3 locate).
-.explorer button.desktop-explorer.explorer-toggle {
+
+// --- 14. toc-static-header: the TOC header is a label, never a control ---
+// (stock component renders a button; inert here so the pane cannot fold) ---
+div.toc {
+  min-height: 0;
+}
+div.toc > button.toc-header {
   pointer-events: none;
   cursor: default;
 }
-.explorer button.desktop-explorer.explorer-toggle .fold {
+div.toc > button.toc-header .fold {
   display: none;
-}
-// Safety: stale .collapsed must never hide content on desktop.
-@media all and (min-width: 801px) {
-  .explorer.collapsed .explorer-content {
-    display: block;
-  }
-  .explorer.collapsed {
-    flex-basis: auto;
-  }
 }

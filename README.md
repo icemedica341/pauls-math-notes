@@ -6,6 +6,8 @@ A personal study record covering algebra through trigonometry — definitions
 clarified, procedures summarised, and hard-won gotchas written down so they
 stick.
 
+> These are my personal study notes — my understanding at the time, not a textbook. Some of it has mistakes; use at your own discretion.
+
 ## Origin
 
 These notes were written as a Google Doc over February–March 2025 while

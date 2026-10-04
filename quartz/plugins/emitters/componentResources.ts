@@ -6,6 +6,11 @@ import { QuartzEmitterPlugin } from "../types"
 import spaRouterScript from "../../components/scripts/spa.inline"
 // @ts-ignore
 import popoverScript from "../../components/scripts/popover.inline"
+// @ts-ignore
+import tocDwellScript from "../../components/scripts/toc-dwell.inline"
+import tocSingleActiveScript from "../../components/scripts/toc-single-active.inline"
+// @ts-ignore
+import tocExplorerScript from "../../components/scripts/toc-explorer.inline"
 import baseStyles from "../../styles/base.scss"
 import customStyles from "../../styles/custom.scss"
 import popoverStyle from "../../components/styles/popover.scss"
@@ -89,6 +94,14 @@ function addGlobalPageResources(ctx: BuildCtx, componentResources: ComponentReso
     componentResources.afterDOMLoaded.push(popoverScript)
     componentResources.css.push(popoverStyle)
   }
+
+  // single-active TOC highlight + pane follow: exactly one entry highlighted,
+  // tracking viewport; TOC pane nudged container-locally to keep it visible
+  componentResources.afterDOMLoaded.push(tocSingleActiveScript)
+  // dwell-to-reveal TOC names: full name only after ~450ms continuous hover
+  componentResources.afterDOMLoaded.push(tocDwellScript)
+  // explorer TOC: collapsible groups + Collapse/Expand all + A-Z/Z-A sort
+  componentResources.afterDOMLoaded.push(tocExplorerScript)
 
   if (cfg.analytics?.provider === "google") {
     const tagId = cfg.analytics.tagId
